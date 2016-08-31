@@ -135,7 +135,7 @@ namespace DatabaseScriptGenerator
                         {
                             using (StreamWriter sw = GetStreamWriter(TriggersScriptPath, true))
                             {
-                                if (verbose) Console.WriteLine("{0] Scripting {1}.{2}", db.Name, table.Name, smo.Name);
+                                if (verbose) Console.WriteLine("{0} Scripting {1}.{2}", db.Name, table.Name, smo.Name);
                                 if (!_CreateOnly)
                                 {
                                     so.ScriptDrops = so.IncludeIfNotExists = true;
