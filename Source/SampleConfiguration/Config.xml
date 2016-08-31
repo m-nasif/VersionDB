@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+    <DatabaseGroups>
+        <DatabaseGroup name="DEFAULT">
+            <Database name="LOCAL" connectionString="server=.\SQLEXPRESS;database=MyProjectDB;uid=;password=;">
+                <Replacements>
+                    <Replace text="WITH (ONLINE = ON)" replacementText="" />
+                </Replacements>
+            </Database>
+        </DatabaseGroup>
+        <DatabaseGroup name="CI">
+            <Database name="CI-DEV-DB-01" connectionString="server=.\SQLEXPRESS;database=MyProjectDB;uid=;password=;">
+                <Replacements>
+                    <Replace text="WITH (ONLINE = ON)" replacementText="" />
+                </Replacements>
+            </Database>
+            <Database name="CI-QA-DB-01" connectionString="server=.\SQLEXPRESS;database=MyProjectDB;uid=;password=;" />
+        </DatabaseGroup>
+        <DatabaseGroup name="STAGE">
+            <Database name="STAGEDB01" connectionString="server=.\SQLEXPRESS;database=MyProjectDB;uid=;password=;" />
+        </DatabaseGroup>
+    </DatabaseGroups>
+
+    <LogTable schemaName="dbo" tableName="_DB_VERSIONING_CHANGE_LOG" />
+    <LogDirectory path="Logs" />
+    <ChangeScriptDirectory path="ChangeScripts" />
+</Config>

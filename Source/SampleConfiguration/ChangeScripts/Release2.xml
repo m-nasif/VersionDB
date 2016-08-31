@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ReleaseChanges releaseName="Release-2" previousReleaseName="Release-1">
+	<Change version="1" description="Test Version 1">
+		<Sql>
+<![CDATA[
+
+CREATE TABLE [dbo].[TEST_TBL2] (ID INT);
+
+]]>
+		</Sql>
+		
+		<Sql path="Procedures\usp_test\test_proc2.sql"/>
+		
+		<Sql>
+<![CDATA[
+
+ALTER TABLE [dbo].[TEST_TBL2] ADD NAME VARCHAR(255);
+
+]]>
+		</Sql>
+	</Change>
+
+	<Change version="2" description="Test Version 2">
+		<Sql>
+<![CDATA[
+
+ALTER TABLE [dbo].[TEST_TBL2] ADD DESCRIPTION VARCHAR(255);
+UPDATE [dbo].[TEST_TBL2] SET NAME = 'ABCD' WHERE ID >1;
+
+]]>
+		</Sql>
+	</Change>
+</ReleaseChanges>
