@@ -121,6 +121,7 @@ namespace DatabaseScriptGenerator
                             WriteScript(table.Script(so), sw);
                         }
                         so.ScriptDrops = so.IncludeIfNotExists = false;
+                        so.Indexes = true;
                         WriteScript(table.Script(so), sw);
                     }
 
@@ -149,7 +150,7 @@ namespace DatabaseScriptGenerator
                     #endregion
 
                     #region Indexes
-
+                    /*
                     foreach (Index smo in table.Indexes)
                     {
                         if (!smo.IsSystemObject)
@@ -167,6 +168,7 @@ namespace DatabaseScriptGenerator
                             }
                         }
                     }
+                    */
 
                     #endregion
 
@@ -236,7 +238,7 @@ namespace DatabaseScriptGenerator
             {
                 if (!smo.IsSystemObject && !smo.IsEncrypted)
                 {
-                    using (StreamWriter sw = GetStreamWriter(Path.Combine(ViewsScriptPath, FixUpFileName(smo.Name) + ".sql"), true))
+                    using (StreamWriter sw = GetStreamWriter(ViewsScriptPath, true))
                     {
                         if (verbose) Console.WriteLine("{0} Scripting {1}", db.Name, smo.Name);
                         if (!_CreateOnly)
